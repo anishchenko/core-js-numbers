@@ -204,8 +204,15 @@ function roundToPowerOfTen(num, pow) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(n) {
+  if (n <= 3 && n >= 0) {
+    return true;
+  }
+  for (let i = 2; i < n; i += 1) {
+    if (n % i === 0) return false;
+  }
+
+  return true;
 }
 
 /**
@@ -223,8 +230,11 @@ function isPrime(/* n */) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  if (Number(value)) {
+    return Number(value);
+  }
+  return def;
 }
 
 /**
@@ -238,8 +248,8 @@ function toNumber(/* value, def */) {
  *   -2 => -8
  *   0  => 0
  */
-function getCube(/* num */) {
-  throw new Error('Not implemented');
+function getCube(num) {
+  return num ** 3;
 }
 
 /**
@@ -255,8 +265,20 @@ function getCube(/* num */) {
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(/* index */) {
-  throw new Error('Not implemented');
+function getFibonacciNumber(index) {
+  let res = 0;
+  let prevVal = 1;
+  let curVal = 1;
+  let i = 3;
+  if (index === 0) return 0;
+  if (index <= 2) return 1;
+  while (i <= index) {
+    res = prevVal + curVal;
+    prevVal = curVal;
+    curVal = res;
+    i += 1;
+  }
+  return res;
 }
 
 /**
