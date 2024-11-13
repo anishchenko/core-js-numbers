@@ -331,7 +331,7 @@ function getSumOfDigits(num) {
  *   15  => false
  */
 function isPowerOfTwo(num) {
-  return Number.isPowerOfTwo(num);
+  return Number.isInteger(Math.log2(num));
 }
 
 /**
@@ -438,9 +438,7 @@ function getNumberValue(number) {
  * '5'      => false
  */
 function isNumber(number) {
-  if (number === Infinity || Number.isNaN(number)) return false;
-  if (typeof number === 'number') return true;
-  return false;
+  return Number.isFinite(number);
 }
 
 /**
@@ -592,7 +590,7 @@ function getSumOfNumbers(x1, x2, x3) {
  * 0, 5   => 5
  */
 function getMaxNumber(firstNumber, secondNumber) {
-  return firstNumber > secondNumber ? firstNumber : secondNumber;
+  return Math.max(firstNumber, secondNumber);
 }
 
 /**
